@@ -1,7 +1,9 @@
-API Documentation For File System Task
+API Documentation
 
 Overview
-This Node.js application uses the Express framework to create an HTTP server that provides endpoints for file operations using the fs module. The application allows clients to create files with a timestamp in their names and to list the names of the files in a specific directory.
+This Node.js application uses the Express framework to create an HTTP server that provides 
+endpoints for file operations using the fs module. The application allows clients to create
+files with a timestamp in their names and to list the names of the files in a specific directory.
 
 Base URL
 http://127.0.0.1:3001
@@ -18,7 +20,9 @@ Endpoints
 2. Create File
     URL: /createFile
     Method: GET
-    Description: Creates a new text file in the ./TextFiles directory. The filename is generated based on the current timestamp in the format YYYYMMDD-HHMMSS.txt. The content of the file is the ISO string representation of the current date and time.
+    Description: Creates a new text file in the ./TextFiles directory. The filename is generated 
+    based on the current timestamp in the format YYYYMMDD-HHMMSS.txt. The content of the file is
+    the ISO string representation of the current date and time.
     Response:
         Status Code: 200 OK
         Content: File created successfully with file name {filename} and file content {timestamp}
@@ -28,7 +32,8 @@ Endpoints
 3. Get Files
     URL: /getFiles
     Method: GET
-    Description: Lists all the filenames in the ./TextFiles directory. The filenames are returned as a newline-separated string wrapped in <pre> tags for preformatted text.
+    Description: Lists all the filenames in the ./TextFiles directory. The filenames are returned
+    as a newline-separated string wrapped in <pre> tags for preformatted text.
     Response:
         Status Code: 200 OK
         Content: A list of filenames in the ./TextFiles directory, each on a new line.
@@ -65,4 +70,5 @@ Get Files Endpoint
         </pre>
 
 
-   Ensure that the TextFiles directory exists before calling the /createFile or /getFiles endpoints to avoid errors.The fs module's synchronous methods (fs.readdirSync) are used in this example.
+   Ensure that the TextFiles directory exists before calling the /createFile or /getFiles endpoints to avoid 
+errors.The fs module's synchronous methods (fs.readdirSync) are used in this example.
