@@ -1,0 +1,68 @@
+API Documentation
+
+Overview
+This Node.js application uses the Express framework to create an HTTP server that provides endpoints for file operations using the fs module. The application allows clients to create files with a timestamp in their names and to list the names of the files in a specific directory.
+
+Base URL
+http://127.0.0.1:3001
+
+Endpoints
+1. Get Home
+    URL: /
+    Method: GET
+    Description: Returns a simple greeting message to indicate that the server is up and running.
+    Response:
+        Status Code: 200 OK
+        Content: Hello using experss JS
+
+2. Create File
+    URL: /createFile
+    Method: GET
+    Description: Creates a new text file in the ./TextFiles directory. The filename is generated based on the current timestamp in the format YYYYMMDD-HHMMSS.txt. The content of the file is the ISO string representation of the current date and time.
+    Response:
+        Status Code: 200 OK
+        Content: File created successfully with file name {filename} and file content {timestamp}
+            {filename}: The name of the created file, formatted as YYYYMMDD-HHMMSS.txt.
+            {timestamp}: The ISO string representation of the current date and time.
+
+3. Get Files
+    URL: /getFiles
+    Method: GET
+    Description: Lists all the filenames in the ./TextFiles directory. The filenames are returned as a newline-separated string wrapped in <pre> tags for preformatted text.
+    Response:
+        Status Code: 200 OK
+        Content: A list of filenames in the ./TextFiles directory, each on a new line.
+
+Directory Structure
+
+    ./TextFiles/: The directory where files are created and listed.
+
+Example Requests and Responses
+
+    Home Endpoint
+        Request:
+	GET http://localhost:3001/
+
+	Response:
+	Hello using experss JS
+
+Create File Endpoint
+
+    Request:
+	GET http://localhost:3001/createFile
+    Response:
+	File created successfully with file name 20240814-123456.txt and file content 2024-08-14T12:34:56.789Z
+
+Get Files Endpoint
+
+    Request:
+	GET http://localhost:3001/getFiles
+    Response:
+
+        <pre>
+        20240814-123456.txt
+        20240814-123457.txt
+        </pre>
+
+
+   Ensure that the TextFiles directory exists before calling the /createFile or /getFiles endpoints to avoid errors.The fs module's synchronous methods (fs.readdirSync) are used in this example.
